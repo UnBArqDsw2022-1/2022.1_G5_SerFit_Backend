@@ -4,13 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "ENVIROMENT=DEV node ./bin/www"
+    "dev": "ENVIROMENT=DEV npx nodemon node ./bin/www",
+    "test": "ENVIROMENT=TEST jest --testTimeout=10000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "jest": "^28.1.2",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.2",
+    "sqlite3": "^5.0.8",
+    "supertest": "^6.2.4"
   }
 }
