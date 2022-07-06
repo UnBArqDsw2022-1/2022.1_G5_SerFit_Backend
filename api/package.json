@@ -18,5 +18,11 @@
     "sequelize": "^6.21.2",
     "sqlite3": "^5.0.8",
     "supertest": "^6.2.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
