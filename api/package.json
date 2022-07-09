@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "ENVIROMENT=DEV npx nodemon node ./bin/www",
-    "test": "ENVIROMENT=TEST jest --testTimeout=10000"
+    "dev": "ENVIRONMENT=DEV nodemon node ./bin/www",
+    "test": "ENVIRONMENT=TEST jest --testTimeout=10000",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,8 +19,8 @@
     "jest": "^28.1.2",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
     "sequelize": "^6.21.2",
-    "sqlite3": "^5.0.8",
     "supertest": "^6.2.4"
   },
   "jest": {
@@ -24,5 +28,14 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.7.1"
   }
 }
