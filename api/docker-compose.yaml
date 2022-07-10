@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432 # expose ports - HOST:CONTAINER
+    restart: unless-stopped
+    volumes:
+      - api:/var/lib/postgresql/data
+  api:
+    build: .
+    working_dir: /api
+    volumes:
+      - .:/api
+    ports:
+      - 3000:3000
+      - 3003:3003 #Porta para development
+      - 5000:5000
+      - 5003:5003
+    env_file:
+      - .env.dev
+    depends_on:
+      - postgres
+volumes:
+  api:
