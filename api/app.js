@@ -3,6 +3,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const setRoutes = require('./routes/index');
+const authMiddleware = require('./middlewares/auth-middleware');
 
 class App {
     constructor() {
@@ -17,6 +18,7 @@ class App {
         this.app.use(express.urlencoded({ extended: false }));
         this.app.use(cookieParser());
         this.app.use(express.static(path.join(__dirname, 'public')));
+        this.app.use(authMiddleware);
     }
 
     routes() {
