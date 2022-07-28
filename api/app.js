@@ -1,20 +1,29 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const setRoutes = require('./routes/index');
+const authMiddleware = require('./middlewares/auth-middleware');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+class App {
+    constructor() {
+        this.app = express();
+        this.middlewares();
+        this.routes();
+    }
 
-var app = express();
+    middlewares() {
+        this.app.use(logger('dev'));
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(cookieParser());
+        this.app.use(express.static(path.join(__dirname, 'public')));
+        this.app.use(authMiddleware);
+    }
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+    routes() {
+        setRoutes(this.app);
+    }
+}
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-module.exports = app;
+module.exports = new App().app;
