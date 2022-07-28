@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function verifyJWT(req, res, next) {
 
-    if (req.originalUrl === "/api/user/create/") {
+    if (req.originalUrl === "/api/user/create/" || req.originalUrl === "/api/login/") {
         next();
     } else {
         const token = req.headers['x-access-token'];
