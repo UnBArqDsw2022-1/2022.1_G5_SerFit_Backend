@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "ENVIRONMENT=DEV nodemon node ./bin/www",
-    "test": "ENVIRONMENT=TEST jest --testTimeout=10000",
+    "dev": "cross-env NODE_ENV=development nodemon node ./bin/www",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
@@ -25,6 +25,7 @@
     "supertest": "^6.2.4"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",

@@ -7,7 +7,7 @@ VOLUME /api
 
 EXPOSE 3003
 
-ENV ENVIROMENT=DEV
+ENV NODE_ENV=development
 
 RUN npm install -g npm nodemon && \
     npm install

@@ -1,11 +1,10 @@
 var dotenv = require('dotenv');
 
-var environment = process.env.ENVIRONMENT.toLowerCase();
+var environment = process.env.NODE_ENV;
 let envPath = __dirname + `/../.env.${environment}`;
-
 dotenv.config({ path: envPath });
 
-var config = {
+const config = {
   port: process.env.PORT,
 };
 
