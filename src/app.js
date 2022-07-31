@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const setRoutes = require('./routes/index');
+const setRoutes = require('./api/routes');
 const authMiddleware = require('./middlewares/auth-middleware');
 
 class App {

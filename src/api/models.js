@@ -12,8 +12,9 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// ADD NEWLY CREATED MODELS HERE
 const models = [
-  require('../api/user/user.model')(sequelize, Sequelize.DataTypes),
+  require('./user/user.model')(sequelize, Sequelize.DataTypes),
 ];
 
 models.map(model => {
