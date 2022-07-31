@@ -3,6 +3,6 @@ const router = express.Router();
 const placeholderController = require('../placeholder/placeholder.controller');
 const PATH = "/placeholder/";
 
-router.post(PATH + "placeholder/", placeholderController.test);
+router.get(PATH + "test/", placeholderController.test);
 
 module.exports = router;
