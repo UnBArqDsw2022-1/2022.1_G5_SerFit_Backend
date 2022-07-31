@@ -1,4 +1,4 @@
-const db = require('../models/index');
+const db = require('../../models/index');
 const jwt = require('jsonwebtoken');
 
 class LoginController {
@@ -19,10 +19,9 @@ class LoginController {
               message: "Email or Password not present",
             })
         }
-        const login = new LoginController();
-        var validateEmail = login.validateEmail(email)
+        const isValidEmail = this.validateEmail(email)
         try {
-            if(validateEmail){
+            if(isValidEmail){
                 const user = await db.user.findOne({ where: { email: email } });
                 if (!user) {
                   res.status(400).json({
@@ -30,14 +29,14 @@ class LoginController {
                     error: "User not found",
                   })
                 } else {
-                    if(password == user.password){
+                    if(password === user.password){
                         const id = user.id;
                         const token = jwt.sign({ id }, process.env.SECRET, {
                             expiresIn: 300 
                         });
                         return res.status(201).json({ auth: true, token: token });
                     } else {
-                        res.status(400).json({ message: "Login not succesful" });
+                        res.status(400).json({ message: "Invalid Password" });
                     }
                 }
             } else{

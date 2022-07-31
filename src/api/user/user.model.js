@@ -1,4 +1,4 @@
-const AccountType = require('../utils/AccountType');
+const AccountType = require('../../utils/AccountType');
 
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
