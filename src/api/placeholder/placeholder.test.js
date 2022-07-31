@@ -22,15 +22,12 @@ describe('Placeholder', () => {
   });
   it('should call test and get 200', async () => {
     const mockedToken = jwt.sign('1', process.env.SECRET);
-    console.log(mockedToken)
     const commonHeaders = {
       'x-access-token': mockedToken
     };
-    const res = await request(app).post("/placeholder/test").set(commonHeaders);
+    const res = await request(app).get("/api/placeholder/test").set(commonHeaders);
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message");
-    expect(res.body.auth).toBeTruthy();
-    expect(res.body.message).toEqual("Login Successful");
+    expect(res.body.message).toEqual("Login successful");
   });
   
 });
