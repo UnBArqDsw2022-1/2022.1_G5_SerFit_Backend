@@ -21,7 +21,7 @@ services:
       - 5000:5000
       - 5003:5003
     env_file:
-      - .env.dev
+      - .env.development
     depends_on:
       - postgres
 volumes:
