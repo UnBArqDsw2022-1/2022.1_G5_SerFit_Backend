@@ -2,23 +2,28 @@
 
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/database'); 
+const config = require('../config/database');
 const db = {};
 
 const sequelizeOptions = config[env];
 
-const sequelize = new Sequelize(config.database, config.username, config.password, sequelizeOptions);
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  sequelizeOptions
+);
 
 // ADD NEWLY CREATED MODELS HERE
 const models = [
   require('./user/user.model')(sequelize, Sequelize.DataTypes),
 ];
 
-models.map(model => {
+models.map((model) => {
   db[model.name] = model;
-})
+});
 
-Object.keys(db).forEach(modelName => {
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
