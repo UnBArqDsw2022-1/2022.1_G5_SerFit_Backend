@@ -9,31 +9,39 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(2048),
         allowNull: false,
         validate: {
             notEmpty: true,
         }
       },
       thumbnailUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(2048),
         allowNull: false,
         validate: {
             notEmpty: true
         }
       },
       videoUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(2048),
         allowNull: true,
         validate: {
             notEmpty: true
         }
       },
       gifUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(2048),
         allowNull: true,
         validate: {
             notEmpty: true
+        }
+      },
+      category: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'exercise_category',
+          key: 'id'
         }
       }
   }, {

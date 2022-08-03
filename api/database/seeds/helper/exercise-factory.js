@@ -4,7 +4,8 @@ const factory = {
             name: name,
             thumbnailUrl: thumbnail,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            deletedAt: null
         };
     },
 
@@ -17,7 +18,8 @@ const factory = {
             gifUrl: gif,
             category: category,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            deletedAt: null
         }
     }
 }
