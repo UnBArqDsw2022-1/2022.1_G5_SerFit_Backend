@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       thumbnailUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: false,
         validate: {
             notEmpty: true
@@ -50,28 +50,28 @@ module.exports = {
         }
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: false,
         validate: {
             notEmpty: true,
         }
       },
       thumbnailUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: false,
         validate: {
             notEmpty: true
         }
       },
       videoUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: true,
         validate: {
             notEmpty: true
         }
       },
       gifUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: true,
         validate: {
             notEmpty: true
