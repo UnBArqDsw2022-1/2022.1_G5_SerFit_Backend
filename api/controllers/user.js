@@ -11,7 +11,7 @@ class UserController {
             const account = await db.user.create(user);
             const id = account.id;
             const token = jwt.sign({ id }, process.env.SECRET, {
-                expiresIn: 300 
+                expiresIn: 3000
             });
             return res.status(201).json({ auth: true, token: token });
         } catch (error) {
