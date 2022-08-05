@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const setRoutes = require('./api/routes');
 const authMiddleware = require('./middlewares/auth-middleware');
+const cors = require('cors');
 
 class App {
     constructor() {
@@ -18,6 +19,7 @@ class App {
         this.app.use(express.urlencoded({ extended: false }));
         this.app.use(cookieParser());
         this.app.use(express.static(path.join(__dirname, 'public')));
+        this.app.use(cors());
         this.app.use(authMiddleware);
     }
 
