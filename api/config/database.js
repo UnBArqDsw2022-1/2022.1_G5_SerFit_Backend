@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-const environment = process.env.ENVIROMENT.toLowerCase();
+const environment = process.env.ENVIRONMENT.toLowerCase();
 const envPath = __dirname + `/../.env.${environment}`;
 
 dotenv.config({ path: envPath });
