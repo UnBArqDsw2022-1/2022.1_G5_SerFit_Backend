@@ -1,17 +1,19 @@
+version: "3.7"
 services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - 5432:5432 # expose ports - HOST:CONTAINER
     restart: unless-stopped
     volumes:
-      - api:/var/lib/postgresql/data
+      - ./pddata:/var/lib/postgresql/data/
   api:
     build: .
+    container_name: serfit_api
     working_dir: /api
     volumes:
       - .:/api
