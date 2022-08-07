@@ -45,8 +45,17 @@ class UserController {
       .catch((err) => res.status(400).json(err));
   }
 
-  compositeQuery(_queries, res) {
-    return res.status(500).send('Not implemented');
+  compositeQuery(queries, res) {
+    let queryObj = {};
+    Object.keys(queries).forEach((query) => {
+      queryObj[query] = queries[query];
+    });
+      return db.user
+        .findAll({
+          where: queryObj,
+        })
+        .then((queryResult) => res.status(200).json(queryResult))
+        .catch((err) => res.status(400).json(err));
   }
 }
 
