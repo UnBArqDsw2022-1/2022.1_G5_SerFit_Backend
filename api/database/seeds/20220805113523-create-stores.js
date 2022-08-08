@@ -1,6 +1,6 @@
 'use strict';
 
-const StoreBuilder = require('../helper/store-builder');
+const StoreBuilder = require('./helper/store-builder');
 
 module.exports = {
   async up (queryInterface, Sequelize) {
