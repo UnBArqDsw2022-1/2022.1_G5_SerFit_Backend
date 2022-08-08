@@ -1,0 +1,3 @@
+class AbstractRoute {
+    constructor(uriFactory)
+}
