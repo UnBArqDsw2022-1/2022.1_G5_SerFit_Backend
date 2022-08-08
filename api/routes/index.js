@@ -1,16 +1,19 @@
-
-const userRoutes = require('./users');
-const exerciseRoutes = require('./exercise');
-const exerciseCategoriesRoutes = require('./exercise-category');
 const accountRoutes = require('./users');
+const activityRoutes = require('./activity');
+const exerciseCategoriesRoutes = require('./exercise-category');
+const exerciseRoutes = require('./exercise');
+const gymRoutes = require('./gym');
 const storeRoutes = require('./store');
+const userRoutes = require('./users');
 
 module.exports = function (app) {
   app.use('/api', [
     accountRoutes,
-    storeRoutes,
-    userRoutes,
+    activityRoutes,
+    exerciseCategoriesRoutes,
     exerciseRoutes,
-    exerciseCategoriesRoutes
+    gymRoutes,
+    storeRoutes,
+    userRoutes
   ])
 };
