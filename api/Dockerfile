@@ -12,6 +12,7 @@ ENV MIGRATED=0
 
 RUN npm install -g npm nodemon   && \
     npm install -g sequelize-cli && \
-    npm install
+    npm install && \
+    sequelize db:create
 
 CMD ["npm", "run", "dev"]
