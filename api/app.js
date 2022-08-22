@@ -5,6 +5,7 @@ const path = require('path');
 const setRoutes = require('./routes/index');
 const authMiddleware = require('./middlewares/auth-middleware');
 const cors = require('cors');
+const morgan = require('morgan');
 
 class App {
     constructor() {
@@ -20,6 +21,7 @@ class App {
         this.app.use(cookieParser());
         this.app.use(express.static(path.join(__dirname, 'public')));
         this.app.use(cors());
+        this.app.use(morgan('tiny'));
         this.app.use(authMiddleware);
     }
 
