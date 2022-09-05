@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
-          isIn: INTERESTS,
+          isIn: [INTERESTS],
         },
       },
       age: {
