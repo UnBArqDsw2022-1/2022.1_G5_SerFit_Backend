@@ -13,8 +13,8 @@ module.exports = {
      * }], {});
     */
     
-    const THUMBS_DIR = dirname__ + '../../public/assets/thumbs_examples';
-    const jussaraThumb = fs.readFileSync(`${THUMBS_DIR}/jussara-maria.jpg`);
+    const THUMBS_DIR = __dirname+ '/../../public/assets/thumbs_examples';
+    const jussaraThumb = fs.readFileSync(`${THUMBS_DIR}/jussara-rodrigues.jpg`);
     const takeshiThumb = fs.readFileSync(`${THUMBS_DIR}/sergio-takeshi.jpg`);
 
     return queryInterface.sequelize.transaction(tr => {
@@ -27,6 +27,8 @@ module.exports = {
           mainInterest: "outros",
           age: 22,
           about: 'Gosto de curtir a Vida',
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "55662211", 
@@ -35,7 +37,9 @@ module.exports = {
           accountType: "client", 
           mainInterest: "academia",
           age: 55,
-          about: 'Tem que estar bem para as novinhas',
+          about: 'Tem que estar bem para as novinhas', 
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "password1234", 
@@ -45,7 +49,9 @@ module.exports = {
           mainInterest: "natacao",
           age: 24,
           about: 'Me sinto uma sereia kkk',
-          thumbnail: jussaraThumb
+          thumbnail: jussaraThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "feijaocomarroz", 
@@ -56,13 +62,15 @@ module.exports = {
           age: 27,
           about: 'Um corpo saudável para uma mente saudável',
           thumbnail: takeshiThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         }
 
       ], {transaction: tr});
     })
   },
 
-  async down (queryInterface, _Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
