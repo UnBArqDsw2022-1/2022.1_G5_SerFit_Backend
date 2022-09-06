@@ -1,5 +1,8 @@
 const AccountType = require('../utils/AccountType');
+const fs = require('fs');
 const INTERESTS = require('../utils/Interests');
+const path = require('path');
+const defaultThumb = fs.readFileSync(__dirname + '/../public/assets/png-clipart-fitness-centre-exercise-computer-icons-physical-fitness-icon-fitness-physical-fitness-text-thumbnail.png');
 
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
@@ -53,6 +56,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      thumbnail : {
+        type: DataTypes.BLOB,
+        defaultValue: defaultThumb, 
+      }
     },
     {
       freezeTableName: true,
