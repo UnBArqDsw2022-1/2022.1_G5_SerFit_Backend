@@ -4,15 +4,6 @@ const jwt = require('jsonwebtoken');
 class LoginController {
     constructor() { }
 
-    // Método redundante  
-    // validateEmail(email)  {
-    //     return String(email)
-    //     .toLowerCase()
-    //     .match(
-    //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    //     );
-    // }
-
     async login(req, res) {
         const { password, email } = req.body;
         console.log(email)
@@ -33,7 +24,7 @@ class LoginController {
                 const token = jwt.sign({ id }, process.env.SECRET, {
                     expiresIn: 300 
                 });
-                return res.status(201).json({ auth: true, token: token });
+                return res.status(201).json({ auth: true, token: token, id: id });
             }
         } catch (error) {
         res.status(400).json({
