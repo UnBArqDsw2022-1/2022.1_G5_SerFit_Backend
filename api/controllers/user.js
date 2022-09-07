@@ -18,11 +18,22 @@ class UserController {
       const token = jwt.sign({ id }, process.env.SECRET, {
         expiresIn: 10000,
       });
-      return res.status(201).json({ auth: true, token: token });
+      return res.status(201).json({ auth: true, token: token, id: id });
     } catch (error) {
       console.log(error);
       return res.status(401).json(error);
     }
+  }
+
+  async get(req, res) {
+    const { id } = req.params;
+        try {
+            const exercise = await db.user.findOne({ where: { id: id } });
+            return res.status(200).json(exercise);
+        } catch (error) {
+            console.log(error);
+            return res.status(401).json(error);
+        }
   }
 
   async all(_req, res) {
