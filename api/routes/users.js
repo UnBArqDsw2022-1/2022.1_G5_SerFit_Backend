@@ -17,5 +17,6 @@ router.get(`${PATH}`, UserController.all);
 router.get(`${PATH}find/`, UserController.find.bind(UserController));
 router.post(`${PATH}create/`, UserController.create);
 router.put(`${PATH}update/:id/`, UserController.update.bind(UserController));
+router.get(`${PATH}:id`, UserController.get);
 
 module.exports = router;
