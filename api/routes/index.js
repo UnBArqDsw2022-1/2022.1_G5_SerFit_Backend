@@ -7,6 +7,7 @@ const storeRoutes = require('./store');
 const userRoutes = require('./users');
 const serviceHiringRoutes = require('./service-hiring');
 const trainingRoutes = require('./training');
+const loginRoutes = require('./login');
 
 module.exports = function (app) {
   app.use('/api', [
@@ -18,6 +19,7 @@ module.exports = function (app) {
     storeRoutes,
     userRoutes,
     serviceHiringRoutes,
-    trainingRoutes
+    trainingRoutes,
+    loginRoutes
   ])
 };
