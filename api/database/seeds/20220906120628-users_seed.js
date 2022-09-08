@@ -65,7 +65,9 @@ module.exports = {
           mainInterest: "academia",
           age: 22,
           about: 'Quero ficar bombada',
-          thumbnail: carvalhoThumb
+          thumbnail: carvalhoThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "SenhaBoa", 
@@ -74,7 +76,9 @@ module.exports = {
           accountType: "client", 
           mainInterest: "trilha",
           age: 21,
-          about: 'Gosto de sair para ver o céu'
+          about: 'Gosto de sair para ver o céu',
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "feijaocomarroz", 
@@ -85,6 +89,8 @@ module.exports = {
           age: 27,
           about: 'Um corpo saudável para uma mente saudável',
           thumbnail: carvalhoThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(), 
         },
         {
           password: "joaoDaSenhaBoa", 
@@ -95,6 +101,8 @@ module.exports = {
           age: 43,
           about: 'Melhor professor da minha rua',
           thumbnail: saraivaThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "avengedSevenfold", 
@@ -117,6 +125,8 @@ module.exports = {
           age: 29,
           about: 'Academia e minha paixao',
           thumbnail: jussaraThumb,
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
         {
           password: "victinho123", 
@@ -125,7 +135,9 @@ module.exports = {
           accountType: "personal", 
           mainInterest: "spining",
           age: 74,
-          about: 'Acredito que o esporte muda vidas'
+          about: 'Acredito que o esporte muda vidas',
+          createdAt: new Date(), 
+          updatedAt: new Date(),
         },
       ], {transaction: tr});
     })
