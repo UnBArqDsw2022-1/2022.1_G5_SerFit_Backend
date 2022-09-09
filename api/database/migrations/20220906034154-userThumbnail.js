@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const defaultThumb = fs.readFileSync(__dirname + '/../../public/assets/png-clipart-fitness-centre-exercise-computer-icons-physical-fitness-icon-fitness-physical-fitness-text-thumbnail.png');
+// const defaultThumb = fs.readFileSync(__dirname + '/../../public/assets/png-clipart-fitness-centre-exercise-computer-icons-physical-fitness-icon-fitness-physical-fitness-text-thumbnail.png');
 
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -18,8 +18,8 @@ module.exports = {
           'user',
           'thumbnail',
           {
-            type: Sequelize.BLOB,
-            defaultValue: defaultThumb, 
+            type: Sequelize.STRING,
+            defaultValue: 'https://thispersondoesnotexist.com/image',
           },
           { transaction: transact }
           )

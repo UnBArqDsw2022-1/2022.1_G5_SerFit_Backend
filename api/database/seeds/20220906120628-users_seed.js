@@ -13,12 +13,14 @@ module.exports = {
      * }], {});
     */
     
+/**
     const THUMBS_DIR = __dirname+ '/../../public/assets/thumbs_examples';
     const jussaraThumb = fs.readFileSync(`${THUMBS_DIR}/jussara-rodrigues.jpg`);
     const takeshiThumb = fs.readFileSync(`${THUMBS_DIR}/sergio-takeshi.jpg`);
     const saraivaThumb = fs.readFileSync(`${THUMBS_DIR}/silvia-saraiva.jpg`);
     const carvalhoThumb = fs.readFileSync(`${THUMBS_DIR}/bento-carvalho.jpg`);
-
+*/
+    const defaultThumb = 'https://thispersondoesnotexist.com/image'
     return queryInterface.sequelize.transaction(tr => {
       return queryInterface.bulkInsert('user', [
         {
@@ -31,7 +33,7 @@ module.exports = {
           about: 'Gosto de curtir a Vida',
           createdAt: new Date(), 
           updatedAt: new Date(),
-          thumbnail: jussaraThumb
+          thumbnail: defaultThumb
         },
         {
           password: "55662211", 
@@ -43,7 +45,7 @@ module.exports = {
           about: 'Tem que estar bem para as novinhas', 
           createdAt: new Date(), 
           updatedAt: new Date(),
-          thumbnail: takeshiThumb
+          thumbnail: defaultThumb,
         },
         {
           password: "password1234", 
@@ -53,7 +55,7 @@ module.exports = {
           mainInterest: "natacao",
           age: 24,
           about: 'Me sinto uma sereia kkk',
-          thumbnail: jussaraThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(),
         },
@@ -65,7 +67,7 @@ module.exports = {
           mainInterest: "academia",
           age: 22,
           about: 'Quero ficar bombada',
-          thumbnail: carvalhoThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(),
         },
@@ -76,6 +78,7 @@ module.exports = {
           accountType: "client", 
           mainInterest: "trilha",
           age: 21,
+          thumbnail: defaultThumb,
           about: 'Gosto de sair para ver o céu',
           createdAt: new Date(), 
           updatedAt: new Date(),
@@ -88,7 +91,7 @@ module.exports = {
           mainInterest: "musculacao",
           age: 27,
           about: 'Um corpo saudável para uma mente saudável',
-          thumbnail: carvalhoThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(), 
         },
@@ -100,7 +103,7 @@ module.exports = {
           mainInterest: "natacao",
           age: 43,
           about: 'Melhor professor da minha rua',
-          thumbnail: saraivaThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(),
         },
@@ -112,7 +115,7 @@ module.exports = {
           mainInterest: "danca",
           age: 60,
           about: 'Melhor dancarino de Brasilia!',
-          thumbnail: takeshiThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(),
         },
@@ -124,7 +127,7 @@ module.exports = {
           mainInterest: "musculacao",
           age: 29,
           about: 'Academia e minha paixao',
-          thumbnail: jussaraThumb,
+          thumbnail: defaultThumb,
           createdAt: new Date(), 
           updatedAt: new Date(),
         },
@@ -135,6 +138,7 @@ module.exports = {
           accountType: "personal", 
           mainInterest: "spining",
           age: 74,
+          thumbnail: defaultThumb,
           about: 'Acredito que o esporte muda vidas',
           createdAt: new Date(), 
           updatedAt: new Date(),

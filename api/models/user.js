@@ -57,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       thumbnail : {
-        type: DataTypes.BLOB,
-        defaultValue: defaultThumb, 
+        type: DataTypes.STRING,
+        defaultValue: 'https://thispersondoesnotexist.com/image',
       }
     },
     {
